@@ -7,6 +7,7 @@ import * as z from "zod";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -20,12 +21,10 @@ import { Input } from "@/components/ui/input";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const formSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -34,15 +33,13 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
   const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     // Check if redirected from registration
     if (searchParams.get("registered") === "true") {
-      setSuccess(
+      toast.success(
         "Registration successful! Please log in with your credentials."
       );
     }
@@ -58,7 +55,6 @@ export default function LoginForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    setError(null);
 
     try {
       const result = await signIn("credentials", {
@@ -69,7 +65,7 @@ export default function LoginForm() {
       });
 
       if (result?.error) {
-        setError("Invalid email or password");
+        toast.error("Invalid email or password");
         return;
       }
 
@@ -80,32 +76,19 @@ export default function LoginForm() {
       }
     } catch (error) {
       console.error("Login error:", error);
-      setError("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <Card className="w-full max-w-md">
+    <div className="w-full max-w-[560px] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <Card className="w-full shadow-none border-0 ">
         <CardHeader>
-          <CardTitle>Sign in to your account</CardTitle>
-          <CardDescription>
-            Enter your credentials to access your account
-          </CardDescription>
+          <CardTitle className="text-3xl">Login</CardTitle>
         </CardHeader>
         <CardContent>
-          {error && (
-            <Alert variant="destructive" className="mb-4">
-              <AlertDescription>{error}</AlertDescription>
-            </Alert>
-          )}
-          {success && (
-            <Alert className="mb-4 bg-green-50 text-green-800 border-green-200">
-              <AlertDescription>{success}</AlertDescription>
-            </Alert>
-          )}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -139,23 +122,26 @@ export default function LoginForm() {
                 )}
               />
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? "Signing in..." : "Sign in"}
+                {isLoading ? "Login in..." : "Login"}
               </Button>
             </form>
           </Form>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-          <div className="text-sm text-center">
+          {/* <div className="text-sm text-center">
             <Link
               href="/forgot-password"
               className="text-primary hover:underline"
             >
               Forgot your password?
             </Link>
-          </div>
-          <div className="text-sm text-center">
+          </div> */}
+          <div className="text-sm text-center text-muted-foreground">
             Don&apos;t have an account?{" "}
-            <Link href="/register" className="text-blue-500 hover:underline">
+            <Link
+              href="/register"
+              className="text-foreground font-semibold underline ml-1"
+            >
               Register here
             </Link>
           </div>

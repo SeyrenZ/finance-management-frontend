@@ -37,6 +37,24 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-beige-500: var(--beige-500);
+  --color-beige-100: var(--beige-100);
+  --color-secondary-green: var(--secondary-green);
+  --color-secondary-yellow: var(--secondary-yellow);
+  --color-secondary-cyan: var(--secondary-cyan);
+  --color-secondary-navy: var(--secondary-navy);
+  --color-secondary-red: var(--secondary-red);
+  --color-secondary-purple: var(--secondary-purple);
+  --color-other-purple: var(--other-purple);
+  --color-other-turquoise: var(--other-turquoise);
+  --color-other-brown: var(--other-brown);
+  --color-other-magenta: var(--other-magenta);
+  --color-other-blue: var(--other-blue);
+  --color-other-navygrey: var(--other-navygrey);
+  --color-other-armygreen: var(--other-armygreen);
+  --color-other-gold: var(--other-gold);
+  --color-other-orange: var(--other-orange);
+  --radius-xs: calc(var(--radius) - 6px);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -76,6 +94,29 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Beige color palette */
+  --beige-500: #98908b;
+  --beige-100: #f8f4f0;
+
+  /* Secondary colors */
+  --secondary-green: #277c78;
+  --secondary-yellow: #f2cdac;
+  --secondary-cyan: #82c9d7;
+  --secondary-navy: #626070;
+  --secondary-red: #c94736;
+  --secondary-purple: #826cb0;
+
+  /* Other colors */
+  --other-purple: #af81ba;
+  --other-turquoise: #597c7c;
+  --other-brown: #93674f;
+  --other-magenta: #934f6f;
+  --other-blue: #3f82b2;
+  --other-navygrey: #97a0ac;
+  --other-armygreen: #7f9161;
+  --other-gold: #cab361;
+  --other-orange: #be6c49;
 }
 
 .dark {
@@ -117,6 +158,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-beige-100 text-foreground;
   }
 }
