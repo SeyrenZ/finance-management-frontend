@@ -182,7 +182,7 @@ export default function RegisterForm() {
               href="/login"
               className="text-grey-900 font-bold underline ml-1"
             >
-              Sign in here
+              Login
             </Link>
           </div>
         </CardFooter>
