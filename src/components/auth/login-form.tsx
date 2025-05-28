@@ -83,14 +83,14 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-[560px] min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <Card className="w-full shadow-none border-0 ">
+    <div className="w-full flex items-center justify-center">
+      <Card className="w-full shadow-none border-0 max-w-[560px] ">
         <CardHeader>
           <CardTitle className="text-3xl">Login</CardTitle>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 ">
               <FormField
                 control={form.control}
                 name="email"

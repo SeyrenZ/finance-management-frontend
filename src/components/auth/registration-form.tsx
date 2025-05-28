@@ -18,7 +18,6 @@ import { Input } from "@/components/ui/input";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -110,13 +109,10 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center  py-12 px-4 sm:px-6 lg:px-8">
-      <Card className="w-full max-w-md">
+    <div className="w-full flex items-center justify-center">
+      <Card className="w-full max-w-[560px] shadow-none border-0">
         <CardHeader>
-          <CardTitle>Create your account</CardTitle>
-          <CardDescription>
-            Enter your information to create an account
-          </CardDescription>
+          <CardTitle className="text-3xl">Sign Up</CardTitle>
         </CardHeader>
         <CardContent>
           {error && (
@@ -182,7 +178,10 @@ export default function RegisterForm() {
         <CardFooter className="flex flex-col space-y-4">
           <div className="text-sm text-center">
             Already have an account?{" "}
-            <Link href="/login" className="text-blue-500 hover:underline">
+            <Link
+              href="/login"
+              className="text-grey-900 font-bold underline ml-1"
+            >
               Sign in here
             </Link>
           </div>

@@ -26,7 +26,8 @@ export const config = {
      * - login
      * - register
      * - forgot-password
+     * - public (public files like images)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|login|register|forgot-password).*)",
+    "/((?!api|_next/static|_next/image|favicon.ico|login|register|forgot-password|.*\\.png|.*\\.svg|.*\\.jpg|.*\\.jpeg|.*\\.gif).*)",
   ],
 };

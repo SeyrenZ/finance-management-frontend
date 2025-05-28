@@ -37,6 +37,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-custom-grey-900: var(--custom-grey-900);
+  --color-custom-grey-500: var(--custom-grey-500);
+  --color-custom-grey-300: var(--custom-grey-300);
+  --color-custom-grey-100: var(--custom-grey-100);
   --color-beige-500: var(--beige-500);
   --color-beige-100: var(--beige-100);
   --color-secondary-green: var(--secondary-green);
@@ -96,6 +100,11 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* Beige color palette */
+  --custom-grey-900: #201f24;
+  --custom-grey-500: #696868;
+  --custom-grey-300: #b3b3b3;
+  --custom-grey-100: #f2f2f2;
+
   --beige-500: #98908b;
   --beige-100: #f8f4f0;
 
