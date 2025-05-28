@@ -28,7 +28,6 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const formSchema = z
   .object({
-    username: z.string().min(3, "Username must be at least 3 characters"),
     email: z.string().email("Please enter a valid email address"),
     password: z
       .string()
@@ -51,7 +50,6 @@ export default function RegisterForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -70,7 +68,6 @@ export default function RegisterForm() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username: values.username,
             email: values.email,
             password: values.password,
           }),
@@ -84,10 +81,6 @@ export default function RegisterForm() {
           if (errorData.detail === "Email already registered") {
             throw new Error(
               "This email is already registered. Please use a different email or try logging in."
-            );
-          } else if (errorData.detail === "Username already taken") {
-            throw new Error(
-              "This username is already taken. Please choose a different username."
             );
           } else {
             throw new Error(
@@ -133,19 +126,6 @@ export default function RegisterForm() {
           )}
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Username</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Choose a username" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
               <FormField
                 control={form.control}
                 name="email"
