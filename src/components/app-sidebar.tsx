@@ -11,7 +11,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
   useSidebar,
 } from "@/components/ui/sidebar";
 import Logo from "./logo";
@@ -21,6 +20,7 @@ import TransactionIcon from "./icons/transaction-icon";
 import BudgetsIcon from "./icons/budgets-icon";
 import PotsIcon from "./icons/pots-icon";
 import RecurringBills from "./icons/recurring-bills";
+import MinimizeIcon from "./icons/minimize-icon";
 
 // Main navigation items
 const mainNavigation = [
@@ -110,7 +110,7 @@ export function AppSidebar() {
           onClick={toggleSidebar}
           className="text-base px-8 group-data-[collapsible=icon]:pl-4 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none mb-20 flex items-center gap-4 "
         >
-          <SidebarTrigger />{" "}
+          <MinimizeIcon />
           <div className="font-bold truncate">Minimize Menu</div>
         </SidebarMenuButton>
       </SidebarContent>
