@@ -5,7 +5,7 @@ import React from "react";
 
 const LoginPage = () => {
   return (
-    <div className="mx-auto flex items-center justify-between h-full min-h-[100dvh] max-w-[1440px] w-full sm:p-10 p-4 relative">
+    <div className="mx-auto flex items-center gap-14 justify-between h-full min-h-[100dvh] max-w-[1440px] w-full sm:p-10 p-4 relative">
       <AuthNavbar />
       <AuthBanner />
       <LoginForm />
