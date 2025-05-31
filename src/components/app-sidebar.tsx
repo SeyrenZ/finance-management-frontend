@@ -67,7 +67,7 @@ export function AppSidebar() {
             {open ? (
               <Logo className="w-[121px] h-[22px] text-white ml-8" />
             ) : (
-              <div className="w-full  text-white font-bold flex items-center justify-center rounded-[8px] text-5xl">
+              <div className="w-full px-[22px]  text-white font-bold flex items-center justify-start rounded-[8px] text-5xl">
                 f
               </div>
             )}
@@ -108,7 +108,7 @@ export function AppSidebar() {
         </div>
         <SidebarMenuButton
           onClick={toggleSidebar}
-          className="text-base px-8 group-data-[collapsible=icon]:pl-4 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none mb-20 flex items-center gap-4 "
+          className="text-base px-8 group-data-[collapsible=icon]:pl-5 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none mb-20 flex items-center gap-4 "
         >
           <MinimizeIcon />
           <div className="font-bold truncate">Minimize Menu</div>
