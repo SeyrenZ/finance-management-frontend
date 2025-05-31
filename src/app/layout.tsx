@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${publicSans.className} `}>
+      <body className={`${publicSans.className} bg-beige-100`}>
         <Providers>{children}</Providers>
         <Toaster />
       </body>

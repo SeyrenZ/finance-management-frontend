@@ -21,6 +21,9 @@ import BudgetsIcon from "./icons/budgets-icon";
 import PotsIcon from "./icons/pots-icon";
 import RecurringBills from "./icons/recurring-bills";
 import MinimizeIcon from "./icons/minimize-icon";
+import LogoutIcon from "./icons/logout-icon";
+import { signOut } from "next-auth/react";
+import ConfirmationDialog from "./confirmation-dialog";
 
 // Main navigation items
 const mainNavigation = [
@@ -55,13 +58,17 @@ export function AppSidebar() {
   const pathname = usePathname();
   const { toggleSidebar, open } = useSidebar();
 
+  const handleLogout = () => {
+    signOut();
+  };
+
   return (
     <Sidebar
       collapsible="icon"
       variant="inset"
       className="bg-custom-grey-900 p-0 "
     >
-      <SidebarContent className="bg-custom-grey-900 text-custom-grey-300  rounded-r-[16px] flex flex-col justify-between">
+      <SidebarContent className="bg-custom-grey-900 text-custom-grey-300  rounded-r-[16px] flex flex-col justify-between overflow-hidden">
         <div>
           {open ? (
             <div className="py-10">
@@ -106,13 +113,26 @@ export function AppSidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
         </div>
-        <SidebarMenuButton
-          onClick={toggleSidebar}
-          className="text-base px-8 group-data-[collapsible=icon]:pl-5 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none mb-20 flex items-center gap-4 "
-        >
-          <MinimizeIcon />
-          <div className="font-bold truncate">Minimize Menu</div>
-        </SidebarMenuButton>
+        <div className="flex flex-col gap-2">
+          <ConfirmationDialog
+            title="Log out of your account?"
+            onConfirm={handleLogout}
+            confirmText="Yes, log out"
+            description="Are you sure you want to log out? You’ll need to sign in again to access your dashboard and personal data."
+          >
+            <SidebarMenuButton className="text-base px-8 group-data-[collapsible=icon]:pl-5 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none flex items-center gap-4 ">
+              <LogoutIcon />
+              <div className="font-bold truncate">Logout</div>
+            </SidebarMenuButton>
+          </ConfirmationDialog>
+          <SidebarMenuButton
+            onClick={toggleSidebar}
+            className="text-base px-8 group-data-[collapsible=icon]:pl-5 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none mb-20 flex items-center gap-4 "
+          >
+            <MinimizeIcon />
+            <div className="font-bold truncate">Minimize Menu</div>
+          </SidebarMenuButton>
+        </div>
       </SidebarContent>
     </Sidebar>
   );
