@@ -19,6 +19,7 @@ interface ConfirmationDialogProps {
   description: string;
   confirmText?: string;
   cancelText?: string;
+  isLoading?: boolean;
 }
 
 const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
@@ -28,6 +29,7 @@ const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
   description,
   confirmText = "Yes, Confirm",
   cancelText = "No, I want to go back",
+  isLoading = false,
 }) => {
   const handleConfirm = () => {
     onConfirm();
@@ -54,6 +56,7 @@ const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
           <Button
             onClick={handleConfirm}
             className="w-full bg-secondary-red hover:bg-secondary-red/80 "
+            disabled={isLoading}
           >
             {confirmText}
           </Button>

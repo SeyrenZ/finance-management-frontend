@@ -57,9 +57,16 @@ const mainNavigation = [
 export function AppSidebar() {
   const pathname = usePathname();
   const { toggleSidebar, open } = useSidebar();
+  const [isLoggingOut, setIsLoggingOut] = React.useState(false);
 
   const handleLogout = () => {
-    signOut();
+    try {
+      setIsLoggingOut(true);
+      signOut();
+    } catch (error) {
+      console.error("Logout failed:", error);
+      setIsLoggingOut(false);
+    }
   };
 
   return (
@@ -117,8 +124,9 @@ export function AppSidebar() {
           <ConfirmationDialog
             title="Log out of your account?"
             onConfirm={handleLogout}
-            confirmText="Yes, log out"
-            description="Are you sure you want to log out? You’ll need to sign in again to access your dashboard and personal data."
+            confirmText={isLoggingOut ? "Logging out..." : "Yes, log out"}
+            description="Are you sure you want to log out? You'll need to sign in again to access your dashboard and personal data."
+            isLoading={isLoggingOut}
           >
             <SidebarMenuButton className="text-base px-8 group-data-[collapsible=icon]:pl-5 group-data-[collapsible=icon]:pr-10 !py-4 h-fit max-h-[56px] max-w-[276px] rounded-l-none flex items-center gap-4 ">
               <LogoutIcon />
