@@ -10,8 +10,8 @@ export default async function OverviewLayout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">{children}</div>
+      <SidebarInset className="bg-beige-100">
+        <div className="flex flex-1 flex-col gap-4 px-10 py-8">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );
