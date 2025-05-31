@@ -63,15 +63,16 @@ export function AppSidebar() {
     >
       <SidebarContent className="bg-custom-grey-900 text-custom-grey-300  rounded-r-[16px] flex flex-col justify-between">
         <div>
-          <div className="flex items-start py-10">
-            {open ? (
-              <Logo className="w-[121px] h-[22px] text-white ml-8" />
-            ) : (
-              <div className="w-full px-[22px]  text-white font-bold flex items-center justify-start rounded-[8px] text-5xl">
-                f
-              </div>
-            )}
-          </div>
+          {open ? (
+            <div className="py-10">
+              <Logo className="w-[121px] h-[22px] text-white ml-8 " />
+            </div>
+          ) : (
+            <div className="w-full px-[22px] py-[27px]  text-white font-bold flex items-center justify-start rounded-[8px] text-5xl">
+              f
+            </div>
+          )}
+
           <SidebarGroup className="!p-0">
             <SidebarGroupContent>
               <SidebarMenu className="gap-1">
