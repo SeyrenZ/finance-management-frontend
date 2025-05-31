@@ -2,7 +2,7 @@ import {
   CurrentBalanceCard,
   ExpensesCard,
   IncomeCard,
-} from "@/components/overview/summary-card";
+} from "@/components/overview/summary-cards";
 import React from "react";
 
 const OverviewPage = () => {

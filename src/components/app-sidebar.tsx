@@ -72,7 +72,6 @@ export function AppSidebar() {
               f
             </div>
           )}
-
           <SidebarGroup className="!p-0">
             <SidebarGroupContent>
               <SidebarMenu className="gap-1">
