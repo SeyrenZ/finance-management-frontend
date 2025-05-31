@@ -53,7 +53,7 @@ const mainNavigation = [
 
 export function AppSidebar() {
   const pathname = usePathname();
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, open } = useSidebar();
 
   return (
     <Sidebar
@@ -61,10 +61,16 @@ export function AppSidebar() {
       variant="inset"
       className="bg-custom-grey-900 p-0 "
     >
-      <SidebarContent className="bg-custom-grey-900 text-white  rounded-r-[16px] flex flex-col justify-between">
+      <SidebarContent className="bg-custom-grey-900 text-custom-grey-300  rounded-r-[16px] flex flex-col justify-between">
         <div>
-          <div className="flex items-start px-8 py-10">
-            <Logo className="w-[121px] h-[22px] text-white" />
+          <div className="flex items-start py-10">
+            {open ? (
+              <Logo className="w-[121px] h-[22px] text-white ml-8" />
+            ) : (
+              <div className="w-full  text-white font-bold flex items-center justify-center rounded-[8px] text-5xl">
+                f
+              </div>
+            )}
           </div>
           <SidebarGroup className="!p-0">
             <SidebarGroupContent>
