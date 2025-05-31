@@ -61,7 +61,7 @@ export default function LoginForm() {
         email: values.email,
         password: values.password,
         redirect: false,
-        callbackUrl: "/",
+        callbackUrl: "/overview",
       });
 
       if (result?.error) {
@@ -72,7 +72,7 @@ export default function LoginForm() {
       if (result?.url) {
         router.push(result.url);
       } else {
-        router.push("/");
+        router.push("/overview");
       }
     } catch (error) {
       console.error("Login error:", error);
